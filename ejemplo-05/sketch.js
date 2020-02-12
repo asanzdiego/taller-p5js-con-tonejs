@@ -6,6 +6,7 @@ let tonos = [105,135,165,195,225,255];
 let divX;
 let divY;
 let oldMouseIsPressed = false;
+let myMouseIsPressed = false;
 
 function setup() {
 
@@ -27,10 +28,7 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
-
-    console.log('oldMouseIsPressed', oldMouseIsPressed);
-    console.log('mouseIsPressed', mouseIsPressed);
+  if (myMouseIsPressed) {
 
     let nota = Math.round((mouseX+(divX/2))/divX)-1;
     console.log('nota', nota);
@@ -43,7 +41,7 @@ function draw() {
 
     if (!oldMouseIsPressed) {
 
-      fill(255);
+      fill(0);
       ellipse(mouseX, mouseY, 100, 100);
       synth.triggerAttack(notas[nota]+octavas[octava]);
     }
@@ -52,9 +50,23 @@ function draw() {
 
     if (oldMouseIsPressed) {
 
+      fill(255);
+      ellipse(mouseX, mouseY, 100, 100);
       synth.triggerRelease();
     }
   }
 
-  oldMouseIsPressed = mouseIsPressed;
+  oldMouseIsPressed = myMouseIsPressed;
+}
+
+function mousePressed() {
+  if (!myMouseIsPressed) {
+    myMouseIsPressed = true;
+  }
+}
+
+function mouseReleased() {
+  if (myMouseIsPressed) {
+    myMouseIsPressed = false;
+  }
 }
