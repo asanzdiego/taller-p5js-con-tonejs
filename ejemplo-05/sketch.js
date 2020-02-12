@@ -43,6 +43,8 @@ function draw() {
 
     if (!oldMouseIsPressed) {
 
+      fill(255);
+      ellipse(mouseX, mouseY, 100, 100);
       synth.triggerAttack(notas[nota]+octavas[octava]);
     }
 
