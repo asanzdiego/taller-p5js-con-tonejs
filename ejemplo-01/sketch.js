@@ -11,13 +11,17 @@ function setup() {
   Tone.Transport.start();
 }
 
-function draw() {
+function doIt() {
 
-}
-
-function mousePressed() {
-  
   synth.triggerAttackRelease('D4', '8n');
   fill(127);
   ellipse(mouseX, mouseY, 50, 50);
+}
+
+function touchStarted() {
+  doIt();
+}
+
+function mousePressed() {
+  doIt();
 }
