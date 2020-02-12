@@ -37,6 +37,6 @@ function mousePressed() {
   synth.triggerAttackRelease(notas[nota]+octavas[octava], '8n');
   console.log('colores[nota]', colores[nota]);
   console.log('tonos[octava]', tonos[octava]);
-  fill(colores[nota], tonos[octava], tonos[octava]);
+  fill(colores[nota], 127, tonos[octava]);
   ellipse(mouseX, mouseY, 50, 50);
 }

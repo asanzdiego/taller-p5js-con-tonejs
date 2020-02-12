@@ -6,6 +6,9 @@ let tonos = [105,135,165,195,225,255];
 let divX;
 let divY;
 let oldMouseIsPressed = false;
+let ellipseWidthMin = 20;
+let ellipseWidthMax = 200;
+let ellipseWidth = ellipseWidthMin;
 
 function setup() {
 
@@ -31,7 +34,7 @@ function draw() {
 
     console.log('oldMouseIsPressed', oldMouseIsPressed);
     console.log('mouseIsPressed', mouseIsPressed);
-
+    
     let nota = Math.round((mouseX+(divX/2))/divX)-1;
     console.log('nota', nota);
     let octava = Math.round((mouseY+(divY/2))/divY)-1;
@@ -39,7 +42,12 @@ function draw() {
     console.log('colores[nota]', colores[nota]);
     console.log('tonos[octava]', tonos[octava]);
     fill(colores[nota], 127, tonos[octava]);
-    ellipse(mouseX, mouseY, 50, 50);
+
+    if (ellipseWidth < ellipseWidthMax) {
+      ellipseWidth++;
+    }
+
+    ellipse(mouseX, mouseY, ellipseWidth, ellipseWidth);
 
     if (!oldMouseIsPressed) {
 
@@ -50,6 +58,7 @@ function draw() {
 
     if (oldMouseIsPressed) {
 
+      ellipseWidth = ellipseWidthMin;
       synth.triggerRelease();
     }
   }
