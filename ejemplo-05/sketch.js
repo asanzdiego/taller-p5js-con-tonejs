@@ -41,8 +41,6 @@ function draw() {
 
     if (!oldIsPressed) {
 
-      fill(0);
-      ellipse(mouseX, mouseY, 100, 100);
       synth.triggerAttack(notas[nota]+octavas[octava]);
     }
 
@@ -50,8 +48,6 @@ function draw() {
 
     if (oldIsPressed) {
 
-      fill(255);
-      ellipse(mouseX, mouseY, 100, 100);
       synth.triggerRelease();
     }
   }
@@ -61,7 +57,6 @@ function draw() {
 
 function touchStarted()  {
   isPressed = true;
-
 }
 
 function touchEnded() {

@@ -5,7 +5,8 @@ let octavas = ["2","3","4","5","6","7"];
 let tonos = [105,135,165,195,225,255];
 let divX;
 let divY;
-let oldMouseIsPressed = false;
+let oldIsPressed = false;
+let isPressed = false;
 let oldNotaOctava = "";
 let ellipseWidthMin = 15;
 let ellipseWidthMax = 150;
@@ -31,10 +32,7 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
-
-    console.log('oldMouseIsPressed', oldMouseIsPressed);
-    console.log('mouseIsPressed', mouseIsPressed);
+  if (isPressed) {
     
     let nota = Math.round((mouseX+(divX/2))/divX)-1;
     console.log('nota', nota);
@@ -61,7 +59,7 @@ function draw() {
 
   } else {
 
-    if (oldMouseIsPressed) {
+    if (oldIsPressed) {
 
       oldNotaOctava = "";
       ellipseWidth = ellipseWidthMin;
@@ -69,5 +67,21 @@ function draw() {
     }
   }
 
-  oldMouseIsPressed = mouseIsPressed;
+  oldIsPressed = isPressed;
+}
+
+function touchStarted()  {
+  isPressed = true;
+}
+
+function touchEnded() {
+  isPressed = false;
+}
+
+function mousePressed() {
+  isPressed = true;
+}
+
+function mouseReleased() {
+  isPressed = false;
 }

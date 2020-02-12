@@ -24,12 +24,8 @@ function setup() {
   colorMode(HSB, 255);
 }
 
-function draw() {
+function doIt() {
 
-}
-
-function mousePressed() {
-  
   let nota = Math.round((mouseX+(divX/2))/divX)-1;
   console.log('nota', nota);
   let octava = Math.round((mouseY+(divY/2))/divY)-1;
@@ -39,4 +35,12 @@ function mousePressed() {
   console.log('tonos[octava]', tonos[octava]);
   fill(colores[nota], 127, tonos[octava]);
   ellipse(mouseX, mouseY, 50, 50);
+}
+
+function touchStarted() {
+  doIt();
+}
+
+function mousePressed() {
+  doIt();
 }

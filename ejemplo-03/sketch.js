@@ -21,7 +21,6 @@ function setup() {
   Tone.Transport.start();
 }
 
-
 function doIt() {
 
   let nota = Math.round((mouseX + (divX / 2)) / divX) - 1;
