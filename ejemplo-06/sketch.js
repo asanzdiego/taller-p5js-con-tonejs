@@ -5,7 +5,8 @@ let octavas = ["2","3","4","5","6","7"];
 let tonos = [105,135,165,195,225,255];
 let divX;
 let divY;
-let oldMouseIsPressed = false;
+let oldIsPressed = false;
+let isPressed = false;
 let ellipseWidthMin = 20;
 let ellipseWidthMax = 200;
 let ellipseWidth = ellipseWidthMin;
@@ -30,11 +31,8 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
+  if (isPressed) {
 
-    console.log('oldMouseIsPressed', oldMouseIsPressed);
-    console.log('mouseIsPressed', mouseIsPressed);
-    
     let nota = Math.round((mouseX+(divX/2))/divX)-1;
     console.log('nota', nota);
     let octava = Math.round((mouseY+(divY/2))/divY)-1;
@@ -49,19 +47,35 @@ function draw() {
 
     ellipse(mouseX, mouseY, ellipseWidth, ellipseWidth);
 
-    if (!oldMouseIsPressed) {
+    if (!oldIsPressed) {
 
       synth.triggerAttack(notas[nota]+octavas[octava]);
     }
 
   } else {
 
-    if (oldMouseIsPressed) {
+    if (oldIsPressed) {
 
       ellipseWidth = ellipseWidthMin;
       synth.triggerRelease();
     }
   }
 
-  oldMouseIsPressed = mouseIsPressed;
+  oldIsPressed = isPressed;
+}
+
+function touchStarted()  {
+  isPressed = true;
+}
+
+function touchEnded() {
+  isPressed = false;
+}
+
+function mousePressed() {
+  isPressed = true;
+}
+
+function mouseReleased() {
+  isPressed = false;
 }
