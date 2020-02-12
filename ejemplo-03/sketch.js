@@ -13,6 +13,10 @@ function setup() {
   canvas = createCanvas(width, height);
   divX = width / notas.length;
   divY = height / octavas.length;
+  for (i=0; i < 8; i++) {
+    line(0, divY*i, window.screen.width, divY*i);
+    line(divX*i, 0, divX*i, window.screen.height);
+  }
   synth = new Tone.Synth().toMaster();
   Tone.Transport.start();
 }
@@ -22,7 +26,7 @@ function draw() {
 }
 
 function mousePressed() {
-
+  
   let nota = Math.round((mouseX+(divX/2))/divX)-1;
   console.log('nota', nota);
   let octava = Math.round((mouseY+(divY/2))/divY)-1;

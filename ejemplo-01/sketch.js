@@ -1,7 +1,12 @@
 let synth;
 
 function setup() {
-  canvas = createCanvas(window.screen.width, window.screen.height);
+
+  let width = window.innerWidth;
+  console.log('width', width);
+  let height = window.innerHeight;
+  console.log('height', height);
+  canvas = createCanvas(width, height);
   synth = new Tone.Synth().toMaster();
   Tone.Transport.start();
 }
@@ -10,7 +15,7 @@ function draw() {
 
 }
 
-function mousePressed () {
+function mousePressed() {
   
   synth.triggerAttackRelease('D4', '8n');
   fill(127);
