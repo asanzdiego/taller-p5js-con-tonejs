@@ -11,7 +11,7 @@ function setup() {
 
 function doIt() {
 
-  if(Tone.context.state === "suspended") {
+  if (Tone.context.state === "suspended") {
     Tone.start();
   }
   synth.triggerAttackRelease('D4', '8n');

@@ -9,4 +9,4 @@
 - [Ejemplo 05](https://asanzdiego.github.io/taller-p5js-con-tonejs/ejemplo-05/index.html)
 - [Ejemplo 06](https://asanzdiego.github.io/taller-p5js-con-tonejs/ejemplo-06/index.html)
 - [Ejemplo 07](https://asanzdiego.github.io/taller-p5js-con-tonejs/ejemplo-07/index.html)
-- [Ejemplo 07-bis](https://asanzdiego.github.io/taller-p5js-con-tonejs/ejemplo-07-bis/index.html)
+- [Ejemplo 07-bis](https://asanzdiego.github.io/taller-p5js-con-tonejs/ejemplo-07-bis-bis/index.html)
