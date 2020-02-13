@@ -18,15 +18,17 @@ function doIt() {
   fill(127);
   ellipse(mouseX, mouseY, 50, 50);
 
-  synth.triggerAttackRelease('D4', '8n');
+  
 }
 
 function touchStarted() {
   doIt();
-  text('touchStarted', 10, 60);
+  text('touchStarted2', 10, 60);
+  synth.triggerAttackRelease('D4', '8n');
 }
 
 function mousePressed() {
   doIt();
-  text('mousePressed', 10, 90);
+  text('mousePressed2', 10, 90);
+  synth.triggerAttackRelease('D4', '8n');
 }
