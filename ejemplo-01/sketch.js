@@ -6,7 +6,7 @@ function setup() {
   let height = window.innerHeight;
   canvas = createCanvas(width, height);
   synth = new Tone.Synth().toMaster();
-  Tone.Transport.start();
+  Tone.start();
 }
 
 function doIt() {
