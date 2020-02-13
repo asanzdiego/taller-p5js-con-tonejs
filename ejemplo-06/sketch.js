@@ -23,12 +23,15 @@ function setup() {
     line(divX * i, 0, divX * i, height);
   }
   synth = new Tone.Synth().toMaster();
-  Tone.Transport.start();
   colorMode(HSB, 255);
 }
 
 function draw() {
 
+  if (Tone.context.state != 'running') {
+    Tone.start();
+  }
+  
   if (isPressed) {
 
     let nota = Math.round((mouseX + (divX / 2)) / divX) - 1;

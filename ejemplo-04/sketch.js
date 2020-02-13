@@ -18,12 +18,15 @@ function setup() {
     line(divX * i, 0, divX * i, height);
   }
   synth = new Tone.Synth().toMaster();
-  Tone.Transport.start();
   colorMode(HSB, 255);
 }
 
 function doIt() {
 
+  if (Tone.context.state != 'running') {
+    Tone.start();
+  }
+  
   let nota = Math.round((mouseX + (divX / 2)) / divX) - 1;
   let octava = Math.round((mouseY + (divY / 2)) / divY) - 1;
   synth.triggerAttackRelease(notas[nota] + octavas[octava], '8n');
