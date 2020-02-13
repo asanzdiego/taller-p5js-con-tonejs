@@ -3,9 +3,7 @@ let synth;
 function setup() {
 
   let width = window.innerWidth;
-  console.log('width', width);
   let height = window.innerHeight;
-  console.log('height', height);
   canvas = createCanvas(width, height);
   synth = new Tone.Synth().toMaster();
   Tone.Transport.start();
