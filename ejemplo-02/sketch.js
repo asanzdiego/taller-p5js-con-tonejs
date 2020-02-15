@@ -1,5 +1,4 @@
 let synth;
-let isPressed = false;
 let notas = ["C", "D", "E", "F", "G", "A", "B"];
 let octavas = ["2", "3", "4", "5", "6", "7"];
 let divX;
